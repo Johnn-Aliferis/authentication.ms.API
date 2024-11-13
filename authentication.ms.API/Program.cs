@@ -1,3 +1,4 @@
+using authentication.ms.API.Exceptions;
 using authentication.ms.API.Service;
 using authentication.ms.API.Utils;
 
@@ -22,6 +23,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+//Middleware for global exception handling.
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
